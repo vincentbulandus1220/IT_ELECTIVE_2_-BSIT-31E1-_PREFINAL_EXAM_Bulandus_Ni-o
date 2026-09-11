@@ -1,0 +1,53 @@
+﻿@model List<MyMVCApp.Models.Question>
+
+@{
+    ViewData["Title"] = "Pre-Finals Examination";
+}
+
+<div class="exam-header">
+    <h1>IT ELECTIVE 2</h1>
+    <h2>Web Systems and Technologies</h2>
+    <p>Pre-Finals Examination • Academic Year 2026–2027</p>
+</div>
+
+<div class="exam-intro">
+    <h3>📝 Examination Answer Guide</h3>
+    <p>
+        Below are the questions and selected answers for the pre-final examination.
+        Each question includes a short explanation.
+    </p>
+</div>
+
+@foreach (var question in Model)
+{
+    <div class="question-card">
+        <div class="question-number">
+            QUESTION @question.Number
+        </div>
+
+        <h3>@question.Text</h3>
+
+        <div class="options">
+            @foreach (var option in question.Options)
+            {
+                <div class="option">
+                    @option
+                </div>
+            }
+        </div>
+
+        <div class="answer">
+            <strong>✅ Correct Answer: @question.Answer</strong>
+        </div>
+
+        <div class="explanation">
+            <strong>💡 Explanation:</strong>
+            @question.Explanation
+        </div>
+    </div>
+}
+
+<div class="footer-note">
+    <p>🎓 IT Elective 2 • Web Systems and Technologies</p>
+    <p>ASP.NET Core MVC Examination Project</p>
+</div>
